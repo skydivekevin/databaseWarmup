@@ -6,5 +6,9 @@ const knex = require('knex')(dbConnection)
 module.exports = {
   getAll() {
     return knex.select().from('students')
+  },
+  create(putStuff) {
+    return database('students')
+      .insert(putStuff).returning('*')
   }
 }

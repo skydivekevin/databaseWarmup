@@ -13,6 +13,9 @@ app.listen(port, listener)
 app.get('/', (req, res) => {
   queries.getAll().then(response => res.send(response))
 })
+
+app.post('/', (req, res) => {
+  queries.create(req.body).returning('*')
+})
+
 module.exports = app
-
-
