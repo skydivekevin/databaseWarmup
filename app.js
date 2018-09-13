@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   queries.create(req.body).returning('*')
+    .then(response.status(201))
+})
+
+app.delete('/id', (request, response) => {
+  queries.delete(request.params.id)
 })
 
 module.exports = app

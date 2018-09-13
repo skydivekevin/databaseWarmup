@@ -10,5 +10,10 @@ module.exports = {
   create(putStuff) {
     return database('students')
       .insert(putStuff).returning('*')
+  },
+  delete(id) {
+    return database('students')
+      .where('id', id)
+      .delete()
   }
 }
